@@ -1,0 +1,45 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+
+```{r}
+data <- winemag.data.130k.v2
+```
+
+We will not need the description;
+
+```{r}
+data$description <- NULL
+data$X <- NULL
+data$designation <- NULL
+data$region_1 <- NULL
+data$region_2 <- NULL
+data$winery <- NULL
+data$taster_name <- NULL
+data$taster_twitter_handle <- NULL
+data$title <- NULL
+```
+
+```{r}
+data <- na.omit(data)
+```
+
+```{r}
+library(fastDummies)
+```
+
+```{r}
+data <- dummy_cols(data, select_columns = c("country", "province", "variety"), remove_first_dummy = FALSE,
+  remove_most_frequent_dummy = FALSE)
+```
+
+Scaling: (mean = 0, std = 1)
+
+
+
+```{r}
+data$price <- scale(data$price)
+data$points <- scale(data$points)
+```
