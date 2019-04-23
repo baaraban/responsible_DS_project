@@ -2,3 +2,4 @@ latex/*.log
 */.ipynb_checkpoints/*
 .Rproj.user
 /datasets/ProcessedWinemag.csv
+**/.ipynb_checkpoints
