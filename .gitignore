@@ -4,3 +4,4 @@ latex/*.log
 /datasets/ProcessedWinemag.csv
 **/.ipynb_checkpoints
 **/.idea
+**/__pycache__
