@@ -2,6 +2,10 @@ from internal_scripts.modelling.training.abstractions.ModelTrainerBase import Mo
 
 
 class KerasTrainer(ModelTrainerBase):
+    def __init__(self, model_name, model):
+        super().__init__(model_name, model)
+        self._SAVING_ROOT = f'{self._SAVING_ROOT}keras/'
+
     def tune(self, tune_parameters):
         pass
 
