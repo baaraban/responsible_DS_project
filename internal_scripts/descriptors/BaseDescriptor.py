@@ -6,5 +6,5 @@ class BaseDescriptor(ABC):
         super().__init__()
 
     @abstractmethod
-    def describe(self, model_name, model, params):
+    def describe(self, model_name, model, data_dict):
         pass
