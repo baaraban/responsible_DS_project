@@ -27,4 +27,6 @@ class SklearnTrainer(ModelTrainerBase):
 
         filename = f'{folder_path}/{date_string}.sav'
         pickle.dump(self.model, open(filename, 'wb'))
-    
+
+    def score_model(self):
+        pass

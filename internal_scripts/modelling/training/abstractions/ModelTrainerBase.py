@@ -19,3 +19,7 @@ class ModelTrainerBase(ABC):
     @abstractmethod
     def save_model(self):
         pass
+
+    @abstractmethod
+    def score_model(self):
+        pass

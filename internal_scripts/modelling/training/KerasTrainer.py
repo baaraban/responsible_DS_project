@@ -14,3 +14,6 @@ class KerasTrainer(ModelTrainerBase):
 
     def save_model(self):
         pass
+
+    def score_model(self):
+        pass
