@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 
 
-class DataLoader(ABC):
+class DataLoaderBase(ABC):
     def __init__(self):
         super().__init__()
 
