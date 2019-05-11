@@ -3,6 +3,7 @@ from abc import ABC, abstractmethod
 
 class ModelTrainerBase(ABC):
     def __init__(self, model_name, model):
+        self._SAVING_ROOT = 'models/'
         self.model_name = model_name
         self.model = model
         super().__init__()
@@ -12,7 +13,7 @@ class ModelTrainerBase(ABC):
         pass
 
     @abstractmethod
-    def fit(self, data_dict):
+    def fit(self, data_dict, fitting_params):
         pass
 
     @abstractmethod
