@@ -13,7 +13,7 @@ class BlackFridayDataLoader(DataLoaderBase):
     def get_train_test_split(self, test_size=.3, rand_state=None):
         df = pd.read_csv(self.__BLACK_FRIDAY_PATH)
 
-        x = df.drop(['Unnamed: 0', 'Purchase_x'], axis=1)
+        x = df.drop(['Purchase_x'], axis=1)
         y = df['Purchase_x']
 
         x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=test_size, random_state=rand_state)
