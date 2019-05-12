@@ -18,7 +18,7 @@ class SklearnTrainer(ModelTrainerBase):
         return self.model
 
     def save_model(self):
-        filename = f'{self._SAVING_ROOT}{self.model_name}.sav'
+        filename = f'{self._SAVING_ROOT}{self.model_name}_{self.data_dict["dataset_name"]}.sav'
         pickle.dump(self.model, open(filename, 'wb'))
 
     def score_model(self):

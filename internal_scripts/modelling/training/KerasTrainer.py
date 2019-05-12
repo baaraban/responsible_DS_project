@@ -34,7 +34,7 @@ class KerasTrainer(ModelTrainerBase):
         return self.model
 
     def save_model(self):
-        filename = f'{self._SAVING_ROOT}{self.model_name}.h5'
+        filename = f'{self._SAVING_ROOT}{self.model_name}_{self.data_dict["dataset_name"]}.h5'
         self.model.save(filename)
 
     def score_model(self):
