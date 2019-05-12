@@ -13,8 +13,8 @@ class LoanDataLoader(DataLoaderBase):
     def get_train_test_split(self, test_size=.3, rand_state=None):
         df = pd.read_csv(self.__LOAN_PATH)
 
-        x = df.drop(['Loan Status'], axis=1)
-        y = df['Loan Status']
+        x = df.drop(['Loan_Status'], axis=1)
+        y = df['Loan_Status']
 
         x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=test_size, random_state=rand_state)
 
