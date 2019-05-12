@@ -1,5 +1,6 @@
 import lime
 import lime.lime_tabular
+from IPython.display import HTML
 
 from internal_scripts.descriptors.BaseDescriptor import BaseDescriptor
 
@@ -12,7 +13,7 @@ class LimeDescriptor(BaseDescriptor):
 
     def describe(self, model_name, model, data_dict):
         print(model_name)
-        if (model_name == 'Linear SVC' or model_name == 'XGboost' or model_name == 'Random Forest Classifier'):
+        if (not 'Decision_Tree' in model_name):
             return {}
         # Note: we currently don't have Lime implementation for this three models
         test_observation = data_dict['x_test'].values[0]
@@ -23,10 +24,9 @@ class LimeDescriptor(BaseDescriptor):
             verbose=True, mode='classification')
 
         exp = explainer.explain_instance(
-            test_observation,
-            model.predict_proba, num_features=5)
+             test_observation,
+             model.predict_proba, num_features=5)
 
-        html_res = exp.show_in_notebook(show_table=True)
         return {
-            "Predictions explanation [LIME]": html_res
+            "Predictions explanation": HTML(exp.as_html())
         }
