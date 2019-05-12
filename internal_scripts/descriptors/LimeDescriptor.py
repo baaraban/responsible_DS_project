@@ -7,6 +7,9 @@ class LimeDescriptor(BaseDescriptor):
     def __init__(self):
         super().__init__()
 
+    def get_descriptor_name(self):
+        return "Lime"
+
     def describe(self, model_name, model, data_dict):
         print(model_name)
         if (model_name == 'Linear SVC' or model_name == 'XGboost' or model_name == 'Random Forest Classifier'):

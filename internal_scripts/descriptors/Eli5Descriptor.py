@@ -6,6 +6,9 @@ class Eli5Descriptor(BaseDescriptor):
     def __init__(self):
         super().__init__()
 
+    def get_descriptor_name(self):
+        return "Eli 5"
+
     def describe(self, model_name, model, data_dict):
         feature_names = list(data_dict['x_train'].columns)
         test_observation = data_dict['x_test'].iloc[0]

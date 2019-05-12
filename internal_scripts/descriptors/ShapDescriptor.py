@@ -6,6 +6,9 @@ class ShapDescriptor(BaseDescriptor):
     def __init__(self):
         super().__init__()
 
+    def get_descriptor_name(self):
+        return "Shap"
+
     def get_explainer(self, model_name, model, data_dict):
         kernel_models = 'SVC'
         deep_models = 'Keras'
