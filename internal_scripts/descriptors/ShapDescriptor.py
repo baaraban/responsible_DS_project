@@ -21,8 +21,11 @@ class ShapDescriptor(BaseDescriptor):
     def describe(self, model_name, model, data_dict, n=300):
         try:
             explainer = self.get_explainer(model_name, model, data_dict)
+            data_to_pass = data_dict['x_train'][:n]
+            if('Keras' in model_name):
+                data_to_pass = data_to_pass.values
             feature_names = data_dict['x_train'].columns
-            shap_values = explainer.shap_values(data_dict['x_train'][:n])
+            shap_values = explainer.shap_values(data_to_pass)
             if type(shap_values) != list:
                 return {
                     "Force plot": shap.force_plot(explainer.expected_value, shap_values,
