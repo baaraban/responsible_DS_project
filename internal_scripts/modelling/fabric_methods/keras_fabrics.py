@@ -1,5 +1,5 @@
-from tensorflow import keras
-from tensorflow.keras.layers import Dense
+import keras
+from keras.layers import Dense
 from keras.regularizers import l2
 
 
