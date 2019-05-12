@@ -19,6 +19,7 @@ class BlackFridayDataLoader(DataLoaderBase):
         x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=test_size, random_state=rand_state)
 
         return {
+            "dataset_name": "Black_Friday",
             "x_train": x_train,
             "x_test": x_test,
             "y_train": y_train,
