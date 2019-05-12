@@ -10,7 +10,6 @@ from internal_scripts.data_loaders.BlackFridayDataLoader import BlackFridayDataL
 data_loader = BlackFridayDataLoader()
 data = data_loader.get_train_test_split()
 
-
 X_train = data['x_train'].values
 y_train_df = pd.get_dummies(data['y_train'], prefix='category')
 y_train = y_train_df.values
@@ -37,3 +36,21 @@ model.compile(optimizer='adam',
 
 print(model.summary())
 model.fit(X_train, y_train, batch_size=2000, epochs=1000, validation_data=(X_test, y_test))
+
+
+class KerasModel(object):
+    def __init__(self, data):
+        input_dim, out_dim = self.get_data_dim(data)
+        self.model = keras.Sequential([
+            Dense(32, activation='relu', input_shape=(input_dim,)),
+            Dense(16, activation='relu'),
+            Dense(8, activation='relu'),
+            Dense(8),
+            Dense(4),
+            Dense(4),
+            keras.layers.Dense(out_dim, activation='softmax')
+        ])
+
+        self.model.compile(optimizer='adam',
+                           loss='categorical_crossentropy',
+                           metrics=['accuracy'])
